@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                // "Federated": "arn:aws:iam::022499040630:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/8C00E5B34E0A6C873A1E3E137252B68B"
+                "Federated": "arn:aws:iam::$account_id:oidc-provider/oidc.eks.$region.amazonaws.com/id/$oidc_id"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    // "oidc.eks.us-east-2.amazonaws.com/id/8C00E5B34E0A6C873A1E3E137252B68B:sub": "system:serviceaccount:kube-system:cluster-autoscaler",
+                    "oidc.eks.$region.amazonaws.com/id/$oidc_id:sub": "system:serviceaccount:kube-system:cluster-autoscaler",
+
+                    // "oidc.eks.us-east-2.amazonaws.com/id/8C00E5B34E0A6C873A1E3E137252B68B:aud": "sts.amazonaws.com"
+                    "oidc.eks.$region.amazonaws.com/id/$oidc_id:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}

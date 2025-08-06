@@ -1,0 +1,25 @@
+# Terraform variables for EKS cluster
+cluster_name = "tct-eks-cluster-test"
+
+vpc_id = "vpc-02a7864ac801c7e28"
+subnet_ids = [
+  "subnet-007dcf31721432c59",
+  "subnet-099794d7187347026",
+  "subnet-07a8cf3feaa894688",
+]
+
+cluster_version = "1.32"
+node_groups = {
+  eks_nodes = {
+    instance_types = ["t3.large"]
+    capacity_type  = "ON_DEMAND"
+    scaling_config = {
+      desired_size = 2
+      max_size     = 3
+      min_size     = 1
+    }
+  }
+}
+
+cluster_role_arn = "arn:aws:iam::xxxxxxxx:role/devops_role"
+node_role_arn    = "arn:aws:iam::xxxxxxxx:role/devops_role"

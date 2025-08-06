@@ -1,0 +1,3 @@
+[submodule "Terraform/lab"]
+	path = Terraform/lab
+	url = https://github.com/Chuc-Thien-DevOps-Final-Project/infrastructure.git
