@@ -6,7 +6,7 @@ echo "==> Starting EKS cluster creation (if not created yet)..."
 eksctl create cluster -f cluster.yaml
 
 export CLUSTER_NAME=tct-cluster
-export REGION=us-west-1
+export REGION=us-east-2
 export ROLE_NAME="ClusterAutoscalerRole"
 export POLICY_NAME="ClusterAutoscalerPolicy"
 export POLICY_FILE="cluster-autoscaler-policy.json"
